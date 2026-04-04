@@ -714,27 +714,44 @@ export default function Home() {
       <footer style={{
         borderTop: `1px solid ${theme.footerBorder}`,
         padding: '24px 48px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        flexWrap: 'wrap', gap: 12,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14,
         transition: 'border-color 0.4s ease',
       }}>
-        <span style={{ fontSize: 18, fontWeight: 900, color: theme.accent }}>ResumeAI</span>
-        <span style={{ fontSize: 13, color: theme.textFaint }}>
-          © 2026 ResumeAI · Built with FastAPI + React + ML
-        </span>
-        <button
-          onClick={() => setDark(d => !d)}
-          style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            background: 'transparent', border: `1px solid ${theme.border}`,
-            borderRadius: 99, padding: '6px 14px',
-            color: theme.textMuted, fontSize: 12,
-            cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600,
-            transition: 'all 0.2s ease',
-          }}
-        >
-          {dark ? <><Sun size={13} /> Light mode</> : <><Moon size={13} /> Dark mode</>}
-        </button>
+        
+        {/* Row 2: social links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <a href="https://www.linkedin.com/in/sampreetghosh/" target="_blank" rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 6, background: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: 99, padding: '6px 14px', color: theme.textMuted, fontSize: 12, fontWeight: 600, textDecoration: 'none', fontFamily: 'inherit', transition: 'all 0.2s ease' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#0A66C2'; e.currentTarget.style.color = '#0A66C2'; e.currentTarget.style.background = '#0A66C212' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = theme.border; e.currentTarget.style.color = theme.textMuted; e.currentTarget.style.background = theme.bgCard }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/saaamyyyyyyyy/" target="_blank" rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 6, background: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: 99, padding: '6px 14px', color: theme.textMuted, fontSize: 12, fontWeight: 600, textDecoration: 'none', fontFamily: 'inherit', transition: 'all 0.2s ease' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#E1306C'; e.currentTarget.style.color = '#E1306C'; e.currentTarget.style.background = '#E1306C12' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = theme.border; e.currentTarget.style.color = theme.textMuted; e.currentTarget.style.background = theme.bgCard }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="mailto:ghosh.sampreet@gmail.com"
+            style={{ display: 'flex', alignItems: 'center', gap: 6, background: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: 99, padding: '6px 14px', color: theme.textMuted, fontSize: 12, fontWeight: 600, textDecoration: 'none', fontFamily: 'inherit', transition: 'all 0.2s ease' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#CCFF00'; e.currentTarget.style.color = '#CCFF00'; e.currentTarget.style.background = '#CCFF0012' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = theme.border; e.currentTarget.style.color = theme.textMuted; e.currentTarget.style.background = theme.bgCard }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+
+        {/* Row 1: logo + copyright + theme toggle */}
+        <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+          <span style={{ fontSize: 18, fontWeight: 900, color: theme.accent }}>ResumeAI</span>
+          <span style={{ fontSize: 13, color: theme.textFaint }}>© 2026 ResumeAI · Developed with ❤️ by Sampreet Ghosh</span>
+          <button onClick={() => setDark(d => !d)}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: `1px solid ${theme.border}`, borderRadius: 99, padding: '6px 14px', color: theme.textMuted, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, transition: 'all 0.2s ease' }}>
+            {dark ? <><Sun size={13} /> Light</> : <><Moon size={13} /> Dark</>}
+          </button>
+        </div>
       </footer>
 
     </div>
