@@ -9,29 +9,32 @@ from utils.pdf_parser import (
 
 router = APIRouter()
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ML_DIR = os.path.join(BASE_DIR, 'ml')
+
 # Load models with error handling
 try:
-    role_model = joblib.load('ml/model.pkl')
+    role_model = joblib.load(os.path.join(ML_DIR, 'model.pkl'))
     print("✓ role_model loaded")
 except Exception as e:
     print(f"✗ role_model FAILED: {e}")
     role_model = None
 
 try:
-    ats_model = joblib.load('ml/ats_model.pkl')
+    ats_model = joblib.load(os.path.join(ML_DIR, 'ats_model.pkl'))
     print("✓ ats_model loaded")
 except Exception as e:
     print(f"✗ ats_model FAILED: {e}")
     ats_model = None
 
 try:
-    vectorizer = joblib.load('ml/vectorizer.pkl')
+    vectorizer = joblib.load(os.path.join(ML_DIR, 'vectorizer.pkl'))
     print("✓ vectorizer loaded")
 except Exception as e:
     print(f"✗ vectorizer FAILED: {e}")
     vectorizer = None
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @router.post('/upload-resume')
